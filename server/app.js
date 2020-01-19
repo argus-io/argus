@@ -1,8 +1,7 @@
 require('dotenv').config();
 
-import express from 'express';
-
-const app = express(),
+const express = require("express"),
+app = express(),
 Configuration = require('./appconfig.js');
 
 app.set('x-powered-by', false);

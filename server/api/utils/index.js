@@ -1,7 +1,6 @@
-import { Response } from 'express';
 const ErrorMessages = require("./errorMessages.js");
 
-const RouteExceptionHandler = (_: any, res: Response) => {
+const RouteExceptionHandler = (_, res) => {
     res
         .status(ErrorMessages.BadRequest.statusCode)
         .json(ErrorMessages.BadRequest)
