@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, Application } from 'express';
 const bodyParser = require("body-parser"),
 errorMessages = require("./api/utils/errorMessages");
 
-module.exports.initialize = function(app: any) {
+module.exports.initialize = function(app: Application) {
 
-    function appUse(app: any, ...arg: any[]) {
+    function appUse(app: Application, ...arg: any[]) {
         return app.use(arg)
     }
 
