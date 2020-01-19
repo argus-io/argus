@@ -1,10 +1,10 @@
-const express = require("express"),
-bodyParser = require("body-parser"),
+import { Request, Response, NextFunction, Application } from 'express';
+const bodyParser = require("body-parser"),
 errorMessages = require("./api/utils/errorMessages");
 
-module.exports.initialize = function(app) {
+module.exports.initialize = function(app: Application) {
 
-    function appUse(app, ...arg) {
+    function appUse(app: Application, ...arg: any[]) {
         return app.use(arg)
     }
 
@@ -12,7 +12,7 @@ module.exports.initialize = function(app) {
         app,
         bodyParser.urlencoded({ extended: false }),
         bodyParser.json(),
-        (req, res, next) => {
+        (req: Request, res: Response, next: NextFunction) => {
             res.setHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE, GET");
             res.header("Access-Control-Allow-Origin", "http://" + req.headers.host);
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
