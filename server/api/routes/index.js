@@ -1,8 +1,8 @@
 // Require all necessary files
-import { Router } from 'express';
-const Utils = require("../utils"),
-router = Router(),
-Test = require("../handlers/test");
+const express = require("express"),
+Utils = require("../utils"),
+router = express.Router(),
+Test = require("../handlers/test.js");
 
 router
 	.route("/test")

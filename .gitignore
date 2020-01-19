@@ -3,4 +3,3 @@ node_modules
 .gitconfig
 .DS_Store
 .dockerignore
-build
