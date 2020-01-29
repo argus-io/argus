@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./api/adapters/redis');
 
 import express from 'express';
 
