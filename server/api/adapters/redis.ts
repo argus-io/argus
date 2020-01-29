@@ -6,19 +6,17 @@ redist_options = {
 },
 client = redis.createClient(redist_options)
 
-client.on('connect', function() {
+client.on('connect', () => {
     console.log('Redis client connected');
 });
 
-client.on('error', function(err: any) {
+client.on('error', (err: any) => {
     console.log('Something went wrong ' + err);
 });
 
-module.exports.setVal = function(key: string, val: string) {
-    return client.set(key, val)
-}
+module.exports.setVal = (key: string, val: string): string => client.set(key, val);
 
-module.exports.getVal = function(key: string) {
+module.exports.getVal = (key: string) =>  {
     return new Promise((resolve, reject) => {
         client.get(key, (err: any, data: any) => {
             if(err) {
@@ -30,6 +28,4 @@ module.exports.getVal = function(key: string) {
     })
 }
 
-module.exports.delVal = function(key: string) {
-    return client.del(key)
-}
+module.exports.delVal = (key: string): string => client.del(key);
